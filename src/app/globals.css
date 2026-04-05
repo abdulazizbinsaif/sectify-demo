@@ -35,6 +35,12 @@ body {
   height: 100%;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+}
+
 @keyframes sectifyFloatY {
   0%,
   100% {
