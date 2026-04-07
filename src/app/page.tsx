@@ -311,8 +311,8 @@ export default function Home() {
         className="relative flex items-center overflow-hidden px-6 py-12 md:px-10"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(15,23,42,0.05),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(99,102,241,0.06),transparent_35%)]" />
-        <div className="mx-auto grid w-full max-w-6xl gap-7 lg:grid-cols-[1.35fr_0.95fr]">
-          <div className="anim-reveal relative z-10 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+        <div className="mx-auto w-full max-w-6xl">
+          <article className="anim-reveal relative z-10 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-9">
             <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-600">
               <Sparkles className="h-3.5 w-3.5 text-slate-700" />
               {t.heroBadge}
@@ -342,41 +342,34 @@ export default function Home() {
                 {t.featuresCta}
               </button>
             </div>
-            <div className="mt-7 hidden gap-2 md:grid md:grid-cols-3">
+            <div className="mt-7 hidden gap-3 md:grid md:grid-cols-3">
               {t.stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <div key={stat.label} className="rounded-xl bg-slate-50 p-3">
                   <p className="text-lg font-semibold">{stat.value}</p>
                   <p className="text-xs text-slate-500">{stat.label}</p>
                 </div>
               ))}
             </div>
-          </div>
-
-          <aside className="anim-reveal anim-delay-2 relative z-10 rounded-3xl border border-slate-200 bg-[#0b1020] p-6 text-slate-100 shadow-[0_20px_40px_-28px_rgba(2,6,23,0.8)]">
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-300">{t.builtForTitle}</p>
-            <div className="mt-5 space-y-3">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-sm font-medium">{t.builtCards[0].title}</p>
-                <p className="mt-1 text-xs text-slate-300">{t.builtCards[0].text}</p>
+            <div className="mt-8 rounded-2xl bg-[#0b1020] p-6 text-slate-100 shadow-[0_20px_40px_-28px_rgba(2,6,23,0.8)]">
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-300">{t.builtForTitle}</p>
+              <div className="mt-5 space-y-3">
+                {t.builtCards.map((card) => (
+                  <div key={card.title}>
+                    <p className="text-sm font-medium">{card.title}</p>
+                    <p className="mt-1 text-xs text-slate-300">{card.text}</p>
+                  </div>
+                ))}
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-sm font-medium">{t.builtCards[1].title}</p>
-                <p className="mt-1 text-xs text-slate-300">{t.builtCards[1].text}</p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                <p className="text-sm font-medium">{t.builtCards[2].title}</p>
-                <p className="mt-1 text-xs text-slate-300">{t.builtCards[2].text}</p>
+              <div className="mt-5 flex flex-wrap gap-4 text-xs text-slate-300">
+                {t.heroChecks.map((item) => (
+                  <span key={item} className="inline-flex items-center gap-1">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="mt-5 flex flex-wrap gap-4 text-xs text-slate-300">
-              {t.heroChecks.map((item) => (
-                <span key={item} className="inline-flex items-center gap-1">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </aside>
+          </article>
         </div>
       </section>
 
@@ -385,25 +378,24 @@ export default function Home() {
         data-sectify-anchor="what-is-sectify"
         className="relative flex items-center overflow-hidden px-6 py-12 md:px-10"
       >
-        <div className="mx-auto grid w-full max-w-6xl gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="mx-auto w-full max-w-6xl">
           <article className="anim-reveal rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
             <h2 className="text-3xl font-semibold md:text-4xl">{t.whatTitle}</h2>
             <p className="mt-5 text-base leading-relaxed text-slate-600">{t.whatParagraph1}</p>
             <p className="mt-4 text-base leading-relaxed text-slate-600">{t.whatParagraph2}</p>
-          </article>
-
-          <aside className="anim-reveal anim-delay-2 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-600">{t.processTitle}</p>
-            <div className="mt-4 space-y-3">
+            <div className="mt-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-600">{t.processTitle}</p>
+              <div className="mt-4 space-y-3">
               {t.processSteps.map((step, idx) => (
-                <div key={step.title} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <div key={step.title} className="rounded-xl bg-slate-50 p-3">
                   <p className="text-xs font-semibold text-slate-700">{`0${idx + 1}`}</p>
                   <p className="mt-1 text-sm font-semibold text-slate-900">{step.title}</p>
                   <p className="mt-1 text-xs text-slate-600">{step.text}</p>
                 </div>
               ))}
+              </div>
             </div>
-          </aside>
+          </article>
         </div>
       </section>
 
@@ -436,18 +428,18 @@ export default function Home() {
         className="relative flex items-center overflow-hidden px-6 py-12 md:px-10"
       >
         <div className="mx-auto w-full max-w-6xl">
-          <h2 className="anim-reveal text-3xl font-semibold md:text-4xl">{t.featuresTitle}</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <article className="anim-reveal rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-3xl font-semibold md:text-4xl">{t.featuresTitle}</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
             {t.featureItems.map((feature, index) => {
               const Icon = FEATURE_ICONS[index] ?? Sparkles;
               return (
-                <article
+                <div
                   key={`${locale}-${feature.title}`}
-                  className="anim-reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                  style={{ animationDelay: `${index * 70}ms` }}
+                  className="rounded-xl bg-slate-50 p-4"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-2">
+                    <div className="rounded-lg border border-slate-200 bg-white p-2">
                       <Icon className="h-4 w-4 text-slate-700" />
                     </div>
                     <div>
@@ -455,11 +447,12 @@ export default function Home() {
                       <p className="mt-2 text-sm text-slate-600">{feature.text}</p>
                     </div>
                   </div>
-                </article>
+                </div>
               );
             })}
+            </div>
+          </article>
           </div>
-        </div>
       </section>
 
       <section
@@ -467,7 +460,7 @@ export default function Home() {
         data-sectify-anchor="api"
         className="relative flex items-center overflow-hidden px-6 py-12 md:px-10"
       >
-        <div className="mx-auto grid w-full max-w-6xl gap-6 lg:grid-cols-[1fr_0.95fr]">
+        <div className="mx-auto w-full max-w-6xl">
           <article className="anim-reveal rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
             <h2 className="text-3xl font-semibold md:text-4xl">{t.apiTitle}</h2>
             <p className="mt-4 text-slate-600">{t.apiDescription}</p>
@@ -477,28 +470,27 @@ export default function Home() {
             >
               <code>{apiSnippet}</code>
             </pre>
-          </article>
-
-          <aside className="anim-reveal anim-delay-2 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-lg font-semibold text-slate-900">{t.finalCtaTitle}</p>
-            <p className="mt-3 text-slate-600">{t.finalCtaText}</p>
-            <div className="mt-5 space-y-2 text-sm text-slate-700">
-              {t.whyItems.map((item) => (
-                <p key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                  {item}
-                </p>
-              ))}
+            <div className="mt-8 rounded-2xl bg-slate-50 p-6">
+              <p className="text-lg font-semibold text-slate-900">{t.finalCtaTitle}</p>
+              <p className="mt-3 text-slate-600">{t.finalCtaText}</p>
+              <div className="mt-5 space-y-2 text-sm text-slate-700">
+                {t.whyItems.map((item) => (
+                  <p key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    {item}
+                  </p>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => instanceRef.current?.goTo("installation")}
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                {t.finalCtaButton}
+                <ArrowUpRight className="h-4 w-4" />
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => instanceRef.current?.goTo("installation")}
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
-            >
-              {t.finalCtaButton}
-              <ArrowUpRight className="h-4 w-4" />
-            </button>
-          </aside>
+          </article>
         </div>
       </section>
     </main>
