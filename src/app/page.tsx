@@ -255,8 +255,9 @@ export default function Home() {
       <header className="site-header relative z-30 border-b border-slate-200 bg-white/92 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-xs font-semibold text-white">
-              S
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-white shadow-sm">
+              <Layers3 className="h-4 w-4 opacity-90" />
+              <span className="absolute -bottom-0.5 right-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slate-800">Sectify</p>
